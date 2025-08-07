@@ -1,56 +1,59 @@
-.contact-form label {
-  display: block;
-  margin-bottom: 20px;
-  color: #35323f;
-  font-weight: 500;
+.contact-card {
+  background: #23263a;
+  border-radius: 1.2em;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 2px 18px #7b1fa22c;
+  padding: 32px 18px 26px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
-.contact-form input,
-.contact-form textarea {
+.contact-card label {
+  color: #c9cfe8;
+  font-size: 1em;
+  font-weight: 500;
+  margin-bottom: 3px;
+  display: block;
+}
+.contact-card input,
+.contact-card textarea {
   width: 100%;
   border: 1.5px solid #b39ddb;
-  border-radius: 8px;
-  padding: 0.7rem;
-  margin-top: 6px;
-  font-size: 1rem;
-  outline: none;
-  background: #f9f6fd;
+  border-radius: 7px;
+  padding: 10px;
+  margin-top: 7px;
+  font-size: 1em;
+  background: #181a27;
+  color: #e4eaff;
   transition: border 0.2s;
   box-sizing: border-box;
 }
-.contact-form input:focus,
-.contact-form textarea:focus {
+.contact-card input:focus,
+.contact-card textarea:focus {
   border: 1.5px solid #7b1fa2;
 }
-.contact-form .invalid {
-  border-color: #e53935;
-  background: #fff4f4;
-}
-.contact-form .error {
-  color: #e53935;
-  font-size: 0.94em;
-  margin-top: 4px;
-}
-.contact-form button {
+.contact-card button {
   width: 100%;
   background: linear-gradient(90deg, #7b1fa2 60%, #1976d2 100%);
   color: #fff;
   border: none;
-  border-radius: 8px;
-  padding: 0.8rem;
-  font-size: 1.1rem;
+  border-radius: 7px;
+  padding: 13px;
+  font-size: 1.1em;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 5px;
   cursor: pointer;
-  box-shadow: 0 1px 8px #ce93d8a1;
-  transition: background 0.2s;
+  transition: background 0.18s;
 }
-.contact-form button:hover {
+.contact-card button:hover {
   background: linear-gradient(90deg, #1976d2 60%, #7b1fa2 100%);
 }
-.contact-form .status {
-  margin-top: 14px;
-  min-height: 22px;
-  font-weight: 500;
-  color: #1976d2;
+.contact-status {
+  margin-top: 10px;
+  min-height: 24px;
+  color: #8ab4f8;
   text-align: center;
+  font-weight: 500;
+  font-size: 1em;
 }
