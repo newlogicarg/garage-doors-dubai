@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import Menu from "./components/Menu";
-import Calculator from "./components/Calculator";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import "./App.css";
@@ -39,7 +38,6 @@ export default function App() {
           </p>
           <div className="hero-buttons">
             <a href="#contact" className="btn main-btn">Оставить заявку</a>
-            <a href="#calculator" className="btn secondary-btn">Рассчитать стоимость</a>
           </div>
           <div className="hero-stats">
             <div>
@@ -76,10 +74,6 @@ export default function App() {
             </div>
           ))}
         </div>
-      </section>
-      {/* Calculator */}
-      <section id="calculator" className="calculator-section">
-        <Calculator />
       </section>
       {/* Contact */}
       <section id="contact" className="contact-section">
