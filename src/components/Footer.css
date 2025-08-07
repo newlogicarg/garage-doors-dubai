@@ -1,0 +1,31 @@
+.footer {
+  width: 100%;
+  padding: 1.1rem 0 0.9rem 0;
+  background: #f3e5f5;
+  color: #7b1fa2;
+  text-align: center;
+  font-size: 1.04em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  border-top: 1px solid #e1bee7;
+}
+.footer a {
+  color: #1976d2;
+  margin: 0 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.footer .social img {
+  width: 27px;
+  height: 27px;
+  vertical-align: middle;
+  border-radius: 7px;
+  margin: 0 4px;
+  box-shadow: 0 1px 7px #ab47bc29;
+  transition: transform 0.13s;
+}
+.footer .social img:hover {
+  transform: scale(1.13) rotate(-7deg);
+}
