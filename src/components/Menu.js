@@ -1,31 +1,53 @@
-.footer {
-  width: 100%;
-  padding: 1.1rem 0 0.9rem 0;
-  background: #f3e5f5;
-  color: #7b1fa2;
-  text-align: center;
-  font-size: 1.04em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  border-top: 1px solid #e1bee7;
-}
-.footer a {
-  color: #1976d2;
-  margin: 0 6px;
-  text-decoration: none;
-  font-weight: bold;
-}
-.footer .social img {
-  width: 27px;
-  height: 27px;
-  vertical-align: middle;
-  border-radius: 7px;
-  margin: 0 4px;
-  box-shadow: 0 1px 7px #ab47bc29;
-  transition: transform 0.13s;
-}
-.footer .social img:hover {
-  transform: scale(1.13) rotate(-7deg);
+import React, { useState } from "react";
+import "./Menu.css";
+
+const menuItems = [
+  { label: "Главная", anchor: "#home" },
+  { label: "Услуги", anchor: "#services" },
+  { label: "Калькулятор", anchor: "#calculator" },
+  { label: "Контакты", anchor: "#contact" },
+];
+
+export default function Menu() {
+  const [open, setOpen] = useState(false);
+
+  const handleScroll = (e, anchor) => {
+    e.preventDefault();
+    setOpen(false);
+    const elem = document.querySelector(anchor);
+    if (elem) elem.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <nav className="hitech-nav">
+      <div className="nav-content">
+        <div className="nav-logo" onClick={e => handleScroll(e, "#home")}>
+          <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="logo" />
+          <span>Garage Doors Dubai</span>
+        </div>
+        <ul className={`nav-list ${open ? "open" : ""}`}>
+          {menuItems.map(({ label, anchor }) => (
+            <li key={anchor}>
+              <a
+                href={anchor}
+                onClick={e => handleScroll(e, anchor)}
+                className="nav-link"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <button
+          className={`nav-burger ${open ? "open" : ""}`}
+          aria-label="menu"
+          onClick={() => setOpen(o => !o)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+    </nav>
+  );
 }
