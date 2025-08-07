@@ -1,22 +1,37 @@
-import React, { useState } from 'react';
-import ContactForm from './components/ContactForm';
-import AdminPanel from './components/AdminPanel';
+import React, { useState } from "react";
+import ContactForm from "./components/ContactForm";
+import AdminPanel from "./components/AdminPanel";
+import Footer from "./components/Footer";
+import "./App.css";
 
 function App() {
   const [admin, setAdmin] = useState(false);
 
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', margin: 0, padding: 0 }}>
-      <header style={{ background: '#1565c0', color: '#fff', padding: '1rem', textAlign: 'center' }}>
-        <h1>Гаражные двери в Дубае</h1>
-        <p>Доставка и установка автоматических гаражных ворот в Дубае. Заявки и консультации онлайн.</p>
-        <button onClick={() => setAdmin(!admin)} style={{ marginTop: 10 }}>
-          {admin ? 'Вернуться к форме' : 'Панель администратора'}
+    <div className="main-bg">
+      <header className="header">
+        <div className="header-content">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
+            alt="Garage Door"
+            className="logo"
+          />
+          <div>
+            <h1>Гаражные двери в Дубае</h1>
+            <p>
+              Доставка и установка автоматических гаражных ворот в Дубае.<br />
+              Заявки и консультации онлайн.
+            </p>
+          </div>
+        </div>
+        <button className="admin-btn" onClick={() => setAdmin((a) => !a)}>
+          {admin ? "Вернуться к форме" : "Панель администратора"}
         </button>
       </header>
-      <main style={{ padding: '2rem' }}>
+      <main>
         {admin ? <AdminPanel /> : <ContactForm />}
       </main>
+      <Footer />
     </div>
   );
 }
