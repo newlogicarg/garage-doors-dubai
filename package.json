@@ -9,6 +9,8 @@
     "react-dom": "^18.2.0"
   },
   "scripts": {
-    "dev": "vercel dev"
+    "dev": "vercel dev",
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   }
 }
