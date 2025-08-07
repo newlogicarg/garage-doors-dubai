@@ -1,110 +1,64 @@
-
-import "./Calculator.css";
-
-const doorTypes = {
-  sectional: { name: "Секционные", basePrice: 2500 },
-  roller: { name: "Роллетные", basePrice: 3200 },
-  swing: { name: "Распашные", basePrice: 1800 },
-  sliding: { name: "Откатные", basePrice: 4500 }
-};
-const sizes = {
-  small: { name: "Маленькие (2x2 м)", multiplier: 0.8 },
-  standard: { name: "Стандартные (2.5x2.5 м)", multiplier: 1.0 },
-  large: { name: "Большие (3x3 м)", multiplier: 1.3 },
-  custom: { name: "Индивидуальный размер", multiplier: 1.6 }
-};
-const materials = {
-  steel: { name: "Сталь", multiplier: 1.0 },
-  aluminum: { name: "Алюминий", multiplier: 1.4 },
-  wood: { name: "Дерево", multiplier: 1.8 },
-  insulated: { name: "Теплоизолированные", multiplier: 1.6 }
-};
-const automationOptions = {
-  none: { name: "Без автоматизации", price: 0 },
-  basic: { name: "Базовая автоматика", price: 800 },
-  premium: { name: "Премиум автоматика", price: 1500 },
-  smart: { name: "Умная система (Wi-Fi)", price: 2200 }
-};
-
-export default function Calculator() {
-  const [calculator, setCalculator] = useState({
-    doorType: 'sectional',
-    size: 'standard',
-    automation: 'none',
-    material: 'steel'
-  });
-  const [result, setResult] = useState(null);
-
-  const handleChange = (field, value) => {
-    setCalculator({...calculator, [field]: value});
-    setResult(null);
-  };
-
-  const calculate = () => {
-    const door = doorTypes[calculator.doorType];
-    const size = sizes[calculator.size];
-    const auto = automationOptions[calculator.automation];
-    const material = materials[calculator.material];
-    const base = door.basePrice * size.multiplier * material.multiplier;
-    const total = base + auto.price;
-    setResult({
-      door: door.name,
-      size: size.name,
-      material: material.name,
-      automation: auto.name,
-      total: Math.round(total)
-    });
-  };
-
-  return (
-    <div className="calculator-card">
-      <h2>Калькулятор стоимости</h2>
-      <div className="calc-fields">
-        <label>
-          Тип ворот
-          <select value={calculator.doorType} onChange={e => handleChange("doorType", e.target.value)}>
-            {Object.entries(doorTypes).map(([key, v]) =>
-              <option key={key} value={key}>{v.name}</option>
-            )}
-          </select>
-        </label>
-        <label>
-          Размер
-          <select value={calculator.size} onChange={e => handleChange("size", e.target.value)}>
-            {Object.entries(sizes).map(([key, v]) =>
-              <option key={key} value={key}>{v.name}</option>
-            )}
-          </select>
-        </label>
-        <label>
-          Материал
-          <select value={calculator.material} onChange={e => handleChange("material", e.target.value)}>
-            {Object.entries(materials).map(([key, v]) =>
-              <option key={key} value={key}>{v.name}</option>
-            )}
-          </select>
-        </label>
-        <label>
-          Автоматизация
-          <select value={calculator.automation} onChange={e => handleChange("automation", e.target.value)}>
-            {Object.entries(automationOptions).map(([key, v]) =>
-              <option key={key} value={key}>{v.name}</option>
-            )}
-          </select>
-        </label>
-      </div>
-      <button className="calc-btn" onClick={calculate}>
-        Рассчитать
-      </button>
-      {result && (
-        <div className="calc-result">
-          <div>Тип: <b>{result.door}</b></div>
-          <div>Размер: <b>{result.size}</b></div>
-          <div>Материал: <b>{result.material}</b></div>
-          <div>Автоматизация: <b>{result.automation}</b></div>
-          <div className="calc-total">Итого: <span>{result.total} AED</span></div>
-        </div>
-      )}
-    </div>
-  );
+.calculator-card {
+  background: #23263a;
+  border-radius: 1.2em;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 2px 18px #1976d22c;
+  padding: 36px 24px 28px 24px;
+  color: #e4eaff;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
+.calculator-card h2 {
+  text-align: center;
+  color: #7b1fa2;
+}
+.calc-fields label {
+  display: block;
+  margin-bottom: 20px;
+  color: #c9cfe8;
+  font-size: 1em;
+}
+.calc-fields select {
+  width: 100%;
+  border: 1.5px solid #b39ddb;
+  border-radius: 7px;
+  padding: 9px;
+  font-size: 1em;
+  margin-top: 6px;
+  background: #181a27;
+  color: #e4eaff;
+}
+.calc-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #1976d2 60%, #7b1fa2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 13px;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 10px 0 0 0;
+  cursor: pointer;
+  transition: background 0.19s, transform 0.13s;
+}
+.calc-btn:hover {
+  background: linear-gradient(90deg, #7b1fa2 50%, #1976d2 100%);
+  transform: scale(1.04);
+}
+.calc-result {
+  margin-top: 19px;
+  background: #1b1e2a;
+  border-radius: 8px;
+  padding: 13px 18px;
+  color: #e4eaff;
+  font-size: 1.08em;
+  text-align: left;
+}
+.calc-total {
+  margin-top: 10px;
+  font-size: 1.18em;
+  color: #8ab4f8;
+}
+.calc-total span { font-weight: bold; }
