@@ -3,7 +3,7 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" id="footer">
       <div>
         <b>Garage Doors Dubai</b> &copy; {new Date().getFullYear()} &middot; <a href="tel:+971501234567">+971 50 123 4567</a>
       </div>
